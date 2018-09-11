@@ -69,31 +69,36 @@ $(document).ready(function() {
 
         // Get the form instance
         var $form = $(e.target);
+         var url = 'https://script.google.com/macros/s/AKfycbwIpGdPKqSeuEMdJJYUYbMuHz9zDGNI0jLjtZ3E37CyFsEq2EU/exec';
+        var redirectUrl = 'success-page.html';
+       
+        var settings = {
+          'cache': false,
+          'dataType': "jsonp",
+          "async": true,
+          "data":$form.serialize()
+          "crossDomain": true,
+          "url":url,
+          "method": "POST",
+          "headers": {
+              "accept": "application/json",
+              "Access-Control-Allow-Origin":"*"
+          }
+      }
 
         // Get the BootstrapValidator instance
         var bv = $form.data('bootstrapValidator');
 
         // Use Ajax to submit form data
-        var url = 'https://script.google.com/macros/s/AKfycbwIpGdPKqSeuEMdJJYUYbMuHz9zDGNI0jLjtZ3E37CyFsEq2EU/exec';
-        var redirectUrl = 'success-page.html';
         console.log();
         // show the loading 
         $('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
-       $.ajax({
-        type: "POST",
-        url: url,
-        crossDomain: true,
-        data: $form.serialize(),
-        success: function (data) {
-            // do something with server response data
-            console.log("Success! Data: " + data.statusText);
-            $(location).attr('href',redirectUrl);
-        },
-        error: function (err) {
-            // handle your error logic here
-       console.log(err);
-        }
-    });
+       $.ajax(settings).done(function (response) {
+          console.log(response);
+
+      });
+        
+       
 
        
 });
