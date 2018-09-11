@@ -95,6 +95,6 @@ $(document).ready(function() {
         $('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
        $.ajax(settings).done(function (response) {
           console.log(response);});
-        });});
+        });
 });
 
