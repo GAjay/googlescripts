@@ -78,11 +78,7 @@ $(document).ready(function() {
           "data":$form.serialize(),
           "crossDomain": true,
           "url":'https://script.google.com/macros/s/AKfycbwIpGdPKqSeuEMdJJYUYbMuHz9zDGNI0jLjtZ3E37CyFsEq2EU/exec',
-          "method": 'post',
-          "headers": {
-             'Content-Type': 'text/plain;charset=utf-8',
-              "Access-Control-Allow-Origin":"*"
-          }
+          "method": 'post'
       }
 
         // Get the BootstrapValidator instance
