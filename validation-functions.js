@@ -94,11 +94,7 @@ $(document).ready(function() {
         // show the loading 
         $('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
        $.ajax(settings).done(function (response) {
-          console.log(response);
-
-      });
-        
-       
-
-       
+          console.log(response);});
+        });
 });
+
