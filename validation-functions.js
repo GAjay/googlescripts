@@ -78,7 +78,13 @@ $(document).ready(function() {
         var redirectUrl = 'success-page.html';
         // show the loading 
         $('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
-        var jqxhr = $.post(url, $form.serialize(), function(data) {
+        var jqxhr = $.post(
+                           url, 
+            type: "POST",
+            crossDomain: true,
+
+                           $form.serialize(), 
+                           function(data) {
             console.log("Success! Data: " + data.statusText);
             $(location).attr('href',redirectUrl);
         })
