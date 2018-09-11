@@ -76,20 +76,24 @@ $(document).ready(function() {
         // Use Ajax to submit form data
         var url = 'https://script.google.com/macros/s/AKfycbwIpGdPKqSeuEMdJJYUYbMuHz9zDGNI0jLjtZ3E37CyFsEq2EU/exec';
         var redirectUrl = 'success-page.html';
+        console.log();
         // show the loading 
         $('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
-        var jqxhr = $.post(url,$form.serialize(), crossDomain: true,
-           function(data) {
+       $.ajax({
+        type: "POST",
+        url: url,
+        crossDomain: true,
+        data: $form.serialize(),
+        success: function (data) {
+            // do something with server response data
             console.log("Success! Data: " + data.statusText);
             $(location).attr('href',redirectUrl);
-        })
-            .fail(function(data) {
-                console.warn("Error! Data: " + data.statusText);
-                // HACK - check if browser is Safari - and redirect even if fail b/c we know the form submits.
-                if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-                    //alert("Browser is Safari -- we get an error, but the form still submits -- continue.");
-                    $(location).attr('href',redirectUrl);                
-                }
-            });
+        },
+        error: function (err) {
+            // handle your error logic here
+       console.log(err);
+        }
     });
+
+       
 });
