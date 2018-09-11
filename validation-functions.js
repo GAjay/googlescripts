@@ -76,7 +76,7 @@ $(document).ready(function() {
           'cache': false,
           'dataType': "jsonp",
           "async": true,
-          "data":$form.serialize()
+          "data":$form.serialize(),
           "crossDomain": true,
           "url":url,
           "method": "POST",
