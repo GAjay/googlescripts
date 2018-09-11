@@ -75,6 +75,7 @@ $(document).ready(function() {
         var settings = {
           'cache': false,
           "async": true,
+            "dataType": 'jsonp',
           "data":$form.serialize(),
           "crossDomain": true,
           "url":'https://script.google.com/macros/s/AKfycbwIpGdPKqSeuEMdJJYUYbMuHz9zDGNI0jLjtZ3E37CyFsEq2EU/exec',
