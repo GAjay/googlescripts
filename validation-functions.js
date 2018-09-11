@@ -78,7 +78,7 @@ $(document).ready(function() {
           "async": true,
           "data":$form.serialize(),
           "crossDomain": true,
-          "url":url,
+          "url":'https://script.google.com/macros/s/AKfycbwIpGdPKqSeuEMdJJYUYbMuHz9zDGNI0jLjtZ3E37CyFsEq2EU/exec',
           "method": "POST",
           "headers": {
               "accept": "application/json",
